@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="/js/home/login.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="../../../data/login/loginCheck.js" method="POST">
+      <div class="form-group">
+        <label for="login_id">사용자 이름:</label>
+        <input type="text" id="login_id" name="login_id" required />
+      </div>
+      <div class="form-group">
+        <label for="login_pw">비밀번호:</label>
+        <input type="login_pw" id="login_pw" name="login_pw" required />
+      </div>
+      <button type="submit">로그인</button>
+    </form>
+    <button
+      type="button"
+      onclick="location.href = 'http://localhost:3000/oauth/login';"
+    >
+      google 로그인
+    </button>
+  </body>
+</html>
