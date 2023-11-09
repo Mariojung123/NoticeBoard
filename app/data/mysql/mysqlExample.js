@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('./myslqConnection');
+const db = require('./mysqlConnection');
 
 const mysql = {
   connection: function (req, res) {

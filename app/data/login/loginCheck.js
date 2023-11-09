@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../mysql/myslqConnection'); // MySQL 연결 모듈
+const db = require('../mysql/mysqlConnection'); // MySQL 연결 모듈
 
 const login_check = {
   login_checking: function (req, res) {
