@@ -1,5 +1,4 @@
 const express = require('express');
-const Login = require('../oauth');
 const router = express.Router();
 const passport = require('passport');
 const connect = require('./oauthFun');
