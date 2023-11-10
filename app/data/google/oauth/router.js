@@ -2,6 +2,7 @@ const express = require('express');
 const Login = require('../oauth');
 const router = express.Router();
 const passport = require('passport');
+const connect = require('./oauthFun');
 
 const sessionApp = require('../session/expressSession');
 
@@ -9,12 +10,7 @@ router.use(passport.initialize());
 
 router.use(sessionApp);
 
-router.use('/login', (req, res) => {
-  Login.Login(req, res, passport.sess_load);
-});
-
-router.use('/redirect', (req, res) => {
-  Login.Redirect(req, res, passport.sess_load, passport.sess_down);
-});
+router.use('/login', connect.Login);
+router.use('/redirect', connect.Redirect);
 
 module.exports = router;
