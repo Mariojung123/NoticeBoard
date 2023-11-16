@@ -13,7 +13,7 @@ router.use('/signUp', ctrl.output.signUp); //회원가입 화면
 
 router.use('/loginCheck', login.login_checking); //로그인 판별
 
-router.use('/sign', signUpRouter);
+router.use('/sign', signUpRouter); //여기 수정 해야함
 router.use('/oauth', oauthRouter);
 
 module.exports = router;
