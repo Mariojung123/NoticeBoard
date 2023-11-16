@@ -1,4 +1,4 @@
-# node_modules/
-# app/.env
-# package.json
-# pakage-lock.js
+node_modules/
+app/.env
+package.json
+pakage-lock.js
