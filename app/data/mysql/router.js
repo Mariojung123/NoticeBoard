@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const mysql = require('../mysql/mysqlExample');
+const DBCP = require('../mysql/mysqlPool');
 
-router.use('/user', mysql.connection);
+router.use('/dbcp', DBCP.connection);
+
+module.exports = router;
