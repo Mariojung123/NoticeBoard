@@ -5,36 +5,28 @@ const db = require('./mysqlConnection');
 
 
 const DBCP = {
-  connection: function (req, res) {
-    // pool.getConnection()의 반환 값을 변수에 저장
-    const { login_id, login_pw } = req.body;
-    db.pool.getConnection().then((connection) => {
-      try {
-        const [rows] = connection.query('SELECT * FROM userTable WHERE id = ? AND password = ?', [login_id, login_pw]);
+  connection: async function (req, res, next) {
+    try {
+      // pool.getConnection()의 반환 값을 변수에 저장
+      const { login_id, login_pw } = req.body;
+      console.log(login_id, login_pw);
 
-        if (rows.length > 0) {
-          res.send('로그인 성공');
-        } else {
-          
-          res.send('로그인 실패');
-        }
+      const connection = await db.pool.getConnection();
+      const [rows, fields] = await connection.query('SELECT * FROM userTable WHERE username = ? AND password = ?', [login_id, login_pw]);
 
-      } catch (error) {
-        console.error(error);
-        res.status(500).send('서버 오류');
-      } finally {
-        // 예외 발생 여부와 관계없이 항상 실행되는 블록
-        connection.release();
+      if (rows.length > 0) {
+        res.send('로그인 성공');
+      } else {
+        res.send('로그인 실패');
       }
-    }).catch((error) => {
+
+      connection.release();
+      next();
+    } catch (error) {
       console.error(error);
       res.status(500).send('서버 오류');
-    });
+    }
   }
 };
-
-
-
-
 
 module.exports = DBCP;
