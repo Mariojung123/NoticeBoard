@@ -4,7 +4,7 @@ const signUp = {
   signUpChecking: function (req, res) {
     const { login_id, login_pw, user_name } = req.body;
     const sql =
-      'INSERT INTO user_login (login_id, login_pw, created, user_name) VALUES (login_id, login_pw, NOW(), user_name)';
+      'INSERT INTO user_login (login_id, login_pw, user_name) VALUES (login_id, login_pw, user_name)';
 
     db.query(sql, [login_id, login_pw, user_name], (err, result) => {
       if (err) {
