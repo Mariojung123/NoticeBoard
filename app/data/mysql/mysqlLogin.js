@@ -7,7 +7,7 @@ require('dotenv').config();
 
 router.use(session({
   secret: process.env.SessionSecret, // 임의의 비밀 키, 실제 프로덕션에서는 더 안전한 방식을 사용해야 합니다.
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   cookie: { secure: false } // HTTPS를 사용하는 경우 true로 설정해야 합니다.
 }));
@@ -24,13 +24,12 @@ const DBCP = {
 
       if (rows.length > 0) {
         req.session.user = { login_id, login_pw };
-        res.send('로그인 성공');
+        next(); // next()를 res.send 이후에 호출
       } else {
         res.send('로그인 실패');
       }
 
       connection.release();
-      next();
     } catch (error) {
       console.error(error);
       res.status(500).send('서버 오류');
@@ -47,5 +46,6 @@ const DBCP = {
     });
   }
 };
+
 
 module.exports = DBCP;
