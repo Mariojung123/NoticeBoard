@@ -23,7 +23,7 @@ const DBCP = {
       const [rows, fields] = await connection.query('SELECT * FROM userTable WHERE username = ? AND password = ?', [login_id, login_pw]);
 
       if (rows.length > 0) {
-        req.session.user = { login_id, login_pw };
+        // req.session.user = { login_id, login_pw };
         next(); // next()를 res.send 이후에 호출
       } else {
         res.send('로그인 실패');

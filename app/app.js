@@ -4,11 +4,13 @@
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const app = express();
 
 //라우팅
 const router = require('./src/routes/home/router');
+// const sessionMiddleware = require('./data/mysql/session');
 
 //앱 세팅
 
@@ -19,6 +21,13 @@ app.use(express.static(`${__dirname}/src/public`));
 app.use(bodyParser.json());
 //URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 않는 문제 해결
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(cookieParser());
+// app.use(session({ //나중에 분리 예정
+//     secret: process.env.SessionSecret,
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: { secure: false }
+// }));
 
 app.use('/', router); //use -> 미들 웨어를 등록해주는 메서드.
 
