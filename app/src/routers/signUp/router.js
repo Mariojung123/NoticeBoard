@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const signUp = require('../signUp/signUpCheck');
+const signUp = require('../../../api/signUp/signUpCheck');
 
 router.use('/Checking', signUp.signUpChecking);
 

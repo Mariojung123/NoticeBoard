@@ -1,5 +1,5 @@
 const express = require('express');
-const Login = require('../oauth');
+const Login = require('./oauth');
 const passport = require('passport');
 
 const connect = {

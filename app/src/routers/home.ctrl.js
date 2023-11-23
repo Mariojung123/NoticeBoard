@@ -18,6 +18,9 @@ const output = {
     res.clearCookie('user');
     res.redirect('/home');
   },
+  profile: (req, res) => {
+    res.render('/main/profile');
+  }
 };
 
 module.exports = {

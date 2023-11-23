@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const connect = require('./oauthFun');
+const connect = require('../../../api/google/oauthFun');
 
 const sessionApp = require('../session/expressSession');
 
