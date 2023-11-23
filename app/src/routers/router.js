@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const login = require('../../../data/login/loginCheck');
-const ctrl = require('../../routes/home/controler/home.ctrl');
+const ctrl = require('./home.ctrl');
 
 
 const mysql = require('../../../data/mysql/router');

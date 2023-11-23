@@ -10,7 +10,13 @@
   <% if (user) { %>
     <h1>Hello, <%= user.login_id %>!</h1>
     <a href="/logout">로그아웃</a>
-  <% } else { %>
+    <a href="/main/profile">프로필</a>
+  
+  
+  
+  
+  
+    <% } else { %>
     <h1>로그인이 필요합니다.</h1>
     <a href="/login">로그인</a>
   <% } %>
