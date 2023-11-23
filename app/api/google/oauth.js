@@ -31,9 +31,7 @@ const googleLoogin = {
         Authorization: `Bearer ${resp.data.access_token}`,
       },
     });
-    req.session.user = resp2.data;
-
-    console.log(req.session.user);
+    
     res.json(resp2.data);
   },
 };

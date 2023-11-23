@@ -9,7 +9,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const app = express();
 
 //라우팅
-const router = require('./src/routes/router');
+const router = require('./src/routers/router');
 
 //앱 세팅
 

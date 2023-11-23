@@ -1,25 +1,25 @@
 const output = {
   home: (req, res) => {
-    res.render('home/index');
+    res.render('index');
   },
   login: (req, res) => {
-    res.render('home/login');
+    res.render('login');
   },
   signUp: (req, res) => {
-    res.render('home/signUp');
+    res.render('signUp');
   },
   main: (req, res) => {
     const user = req.cookies.user || null;
 
-    res.render('home/main', { user });
+    res.render('main', { user });
   },
   logout: (req, res) => {
     // 로그아웃 시 쿠키 제거
     res.clearCookie('user');
-    res.redirect('/home');
+    res.redirect('home');
   },
   profile: (req, res) => {
-    res.render('/main/profile');
+    res.render('profile');
   }
 };
 
