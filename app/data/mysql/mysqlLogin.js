@@ -15,7 +15,9 @@ const DBCP = {
       const [rows, fields] = await connection.query('SELECT * FROM userTable WHERE username = ? AND password = ?', [login_id, login_pw]);
 
       if (rows.length > 0) {
-        res.send(`Hello, login_id: ${login_id}`);
+        // 로그인 성공 시 쿠키에 사용자 정보 저장
+        res.cookie('user', { login_id });
+        res.redirect('/main');
       } else {
         res.send('로그인 실패');
       }
