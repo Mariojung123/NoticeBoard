@@ -1,0 +1,18 @@
+<!-- views/searchForm.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 폼</title>
+</head>
+<body>
+    <h1>검색 폼</h1>
+    <form action="/profile/searchResult" method="GET">
+        <label for="searchName">검색어:</label>
+        <input type="text" id="searchName" name="searchName" required>
+        <button type="submit">검색</button>
+    </form>
+</body>
+</html>
