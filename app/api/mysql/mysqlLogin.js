@@ -19,7 +19,7 @@ const DBCP = {
         res.cookie('user', { login_id });
         res.redirect('/main');
       } else {
-        res.send('로그인 실패');
+        res.send(false);
       }
 
       connection.release();
