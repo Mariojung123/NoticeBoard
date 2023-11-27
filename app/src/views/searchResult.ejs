@@ -1,0 +1,23 @@
+<!-- views/searchResult.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 결과</title>
+</head>
+<body>
+    <h1>검색 결과</h1>
+
+    <% if (searchResults.length > 0) { %>
+        <p><strong>Username:</strong> <%= searchResults[0].username %></p>
+        <p><strong>Introduction:</strong> <%= searchResults[0].introduction %></p>
+        <!-- 다른 필요한 정보도 필요에 따라 추가 -->
+    <% } else { %>
+        <p>검색 결과가 없습니다.</p>
+    <% } %>
+
+    <a href="/profile/searchUser">다시 검색하기</a>
+</body>
+</html>
