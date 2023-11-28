@@ -12,8 +12,8 @@
 
     <% if (searchResults.length > 0) { %>
         <p><strong>Username:</strong> <%= searchResults[0].username %></p>
+        <p><strong>MBTI:</strong> <%= searchResults[0].mbti %></p>
         <p><strong>Introduction:</strong> <%= searchResults[0].introduction %></p>
-        <!-- 다른 필요한 정보도 필요에 따라 추가 -->
     <% } else { %>
         <p>검색 결과가 없습니다.</p>
     <% } %>
