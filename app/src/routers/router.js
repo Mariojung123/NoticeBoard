@@ -8,6 +8,7 @@ const mysqlRouter = require('./mysql/router');
 const oauthRouter = require('./google/router');
 const signUpRouter = require('./signUp/router');
 const profileRouter = require('./profile/router');
+const boardRouter = require('./board/router');
 
 router.use('/home', ctrl.output.home); //main 화면
 router.use('/login', ctrl.output.login); //login 화면
@@ -22,5 +23,6 @@ router.use('/mysql', mysqlRouter)
 router.use('/sign', signUpRouter); //여기 수정 해야함
 router.use('/oauth', oauthRouter);
 router.use('/profile', profileRouter);
+router.use('/Board', boardRouter);
 
 module.exports = router;r
