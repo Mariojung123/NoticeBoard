@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Board = {
+const directing = {
     freeBoard: (req, res) => {
         res.render('freeBoard');
     },
@@ -9,5 +9,13 @@ const Board = {
         res.render('kknockBoard');
     }
 }
+const Writing = {
+    free_Writing: (req, res) => {
+        res.render('free_Writing');
+    },
+    kknock_Writing: (req, res) => {
+        res.render('kknock_Writing');
+    }
+}
 
-module.exports = Board;
+module.exports = {directing, Writing};
