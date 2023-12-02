@@ -5,7 +5,7 @@ CREATE TABLE freeBoard (
     author VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     views INT DEFAULT 0,
-    has_attachment BOOLEAN DEFAULT false
+    fileExist INT
 );
 
 CREATE TABLE kknockBoard (
@@ -15,5 +15,5 @@ CREATE TABLE kknockBoard (
     author VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     views INT DEFAULT 0,
-    has_attachment BOOLEAN DEFAULT false
+    fileExist INT
 );

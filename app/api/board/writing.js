@@ -9,15 +9,21 @@ const writing = {
         try {
             connection = await db.pool.getConnection();
 
+            var fileExist = 0;
             const author = req.cookies.user.login_id;
-            const {title, content} = req.body;
+            const {title, content, file} = req.body;
+            if (file) {
+                fileExist = 1;
+            }
 
             console.log(author);
             console.log(title);
             console.log(content);
+            console.log(file);
+            console.log(fileExist);
 
-            const sql = 'INSERT INTO freeBoard (title, content, author) VALUES (?, ?, ?)';
-            const [result] = await connection.query(sql, [title, content, author]);
+            const sql = 'INSERT INTO freeBoard (title, content, author, fileExist) VALUES (?, ?, ?, ?)';
+            const [result] = await connection.query(sql, [title, content, author, fileExist]);
             res.redirect('/Board/freeBoard');
         } catch (error) {
             console.error('MySQL query error: ' + error.stack);
