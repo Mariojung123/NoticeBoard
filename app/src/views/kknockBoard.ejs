@@ -10,5 +10,10 @@
         <div>
             <a href="/Board/kknock_Writing">글 싸지르기</a>
         </div>
+        <% for (const post of posts) { %>
+            <div>
+                <a href="/Board/kknock/<%= post.id %>"><%= post.title %></a>
+            </div>
+        <% } %>
 </body>
 </html>

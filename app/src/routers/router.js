@@ -25,4 +25,4 @@ router.use('/oauth', oauthRouter);
 router.use('/profile', profileRouter);
 router.use('/Board', boardRouter);
 
-module.exports = router;r
+module.exports = router;
