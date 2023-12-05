@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세 정보</title>
+</head>
+<body>
+    <h1><%= post.title %></h1>
+    <p>작성자: <%= post.author %></p>
+    <p>작성일자: <%= post.created_at %></p>
+    <p>조회수: <%= post.views %></p>
+
+    <div>
+        <%= post.content %>
+    </div>
+    
+    <!-- <% if (post.has_attachment) { %> -->
+        <!-- 첨부 파일이 있는 경우 처리 -->
+        <!-- <p>첨부 파일이 있습니다. (여기에 첨부 파일 링크 등 추가)</p> -->
+    <!-- <% } else { %> -->
+        <!-- 첨부 파일이 없는 경우 처리 -->
+        <!-- <p>첨부 파일이 없습니다.</p> -->
+    <!-- <% } %> -->
+
+    <!-- 뒤로 가기 링크 -->
+    <a href="/board/kknock">뒤로 가기</a>
+</body>
+</html>
