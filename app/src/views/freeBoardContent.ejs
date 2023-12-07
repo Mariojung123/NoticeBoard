@@ -1,3 +1,5 @@
+<!-- views/postDetail.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +16,6 @@
     <div>
         <%= post.content %>
     </div>
-    
     <!-- <% if (post.has_attachment) { %> -->
         <!-- 첨부 파일이 있는 경우 처리 -->
         <!-- <p>첨부 파일이 있습니다. (여기에 첨부 파일 링크 등 추가)</p> -->
@@ -22,8 +23,25 @@
         <!-- 첨부 파일이 없는 경우 처리 -->
         <!-- <p>첨부 파일이 없습니다.</p> -->
     <!-- <% } %> -->
+    <!-- 댓글 표시 -->
+    <h2>댓글</h2>
+    <ul>
+        <% for (const comment of comments) { %>
+            <li>
+                <p>작성자: <%= comment.author %></p>
+                <p>내용: <%= comment.content %></p>
+            </li>
+        <% } %>
+    </ul>
 
-    <!-- 뒤로 가기 링크 -->
-    <a href="/board/free">뒤로 가기</a>
+    <!-- 댓글 입력 폼 -->
+    <form action="/Board/free/comment/<%= post.id %>" method="POST">
+        <label for="commentContent">댓글 내용:</label>
+        <textarea id="commentContent" name="commentContent" required></textarea>
+        <br>
+        <button type="submit">댓글 작성</button>
+    </form>
+
+    <a href="/board/freeBoard">뒤로 가기</a>
 </body>
 </html>
