@@ -30,6 +30,21 @@
             <li>
                 <p>작성자: <%= comment.author %></p>
                 <p>내용: <%= comment.content %></p>
+                <% for (const ChildComment of ChildComments){ 
+                    if(comment.id == ChildComment.comment_id) {%>
+                <p>대댓글 작성자: <%= ChildComment.author %></p>
+                <p>대댓글 내용: <%= ChildComment.content %></p>
+                    <% } %>
+                <% } %>
+                <form action="/Board/free/ChildComment" method="POST">
+                    <label for="commentChildContent"></label>
+                    <input type="hidden" id="postId" name="postId" value="<%= post.id %>">
+                    <input type="hidden" id="comment_id" name="comment_id" value="<%= comment.id %>">
+                    <textarea id="commentContent" name="commentContent" required></textarea>
+                    <br>
+                    <button type="submit">댓글 작성</button>
+                </form>
+            </li>
             </li>
         <% } %>
     </ul>

@@ -12,6 +12,7 @@ const InnerContent = {
             console.log(postId);
             const [post, fields] = await db.pool.query('SELECT * FROM freeBoard WHERE id = ?', [postId]);
             const [comments, commentFields] = await db.pool.query('SELECT * FROM freeBoardComment WHERE post_id = ?', [postId]);
+            const [ChildComments] = await db.pool.query('SELECT * FROM freeBoardChildComment WHERE post_id = ?', [postId]);
           
             if (post.length === 0) {
               // 해당 ID의 게시글이 없는 경우 404 에러
@@ -20,8 +21,8 @@ const InnerContent = {
               // 조회수 증가
               await db.pool.query('UPDATE freeBoard SET views = views + 1 WHERE id = ?', [postId]);
           
-              // 게시글 및 댓글 정보를 렌더링
-              res.render('freeBoardContent', { post: post[0], comments });
+              // 게시글 및 댓글 정보를 렌더링 데이터 넘기기
+              res.render('freeBoardContent', { post: post[0], comments ,ChildComments, postId});
             }
           } catch (error) {
             console.error('MySQL query error: ' + error.stack);
