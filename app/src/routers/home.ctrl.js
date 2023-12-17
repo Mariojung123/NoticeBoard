@@ -6,9 +6,10 @@ const output = {
     res.render('login');
   },
   signUp: (req, res) => {
-    res.render('signUp');
+    const info = {};
+    res.render('signUp', {info});
   },
-  main: (req, res) => {
+  main: (req, recs) => {
     const user = req.cookies.user || null;
 
     res.render('main', { user });

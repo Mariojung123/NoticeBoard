@@ -25,14 +25,15 @@ const googleLoogin = {
       grant_type: 'authorization_code',
     });
     console.log(resp.data);
-
     const resp2 = await axios.get(GOOGLE_USERINFO_URL, {
       headers: {
         Authorization: `Bearer ${resp.data.access_token}`,
       },
     });
     
-    res.json(resp2.data);
+    console.log(resp2.data.name);
+    console.log(resp2.data.email);
+    res.render('signUp', {info: resp2.data});
   },
 };
 
